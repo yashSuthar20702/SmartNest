@@ -11,12 +11,18 @@ import Firebase
 @main
 struct SmartNestApp: App {
     
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    
     init() {
-        FirebaseApp.configure()
+        // Don't configure Firebase during Xcode Previews
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+            FirebaseApp.configure()
+        }
     }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(hasSeenOnboarding: hasSeenOnboarding)
         }
     }
 }
