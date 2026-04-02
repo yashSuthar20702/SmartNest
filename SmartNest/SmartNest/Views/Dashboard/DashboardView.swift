@@ -38,10 +38,10 @@ struct DashboardView: View {
                     Label("Inventory", systemImage: "cart.fill")
                 }
 
-            StatusView()
+            ProfileView()
                 .tag(4)
                 .tabItem {
-                    Label("Status", systemImage: "person.fill.viewfinder")
+                    Label("Profile", systemImage: "person.fill")
                 }
         }
         .tint(Theme.accent)
